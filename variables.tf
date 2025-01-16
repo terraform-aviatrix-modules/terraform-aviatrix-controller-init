@@ -35,3 +35,10 @@ variable "wait_for_setup_duration" {
   description = "Duration to wait for controller setup to complete"
   default     = "10m"
 }
+
+# terraform-docs-ignore
+variable "destroy_url" {
+  type        = string
+  description = "Dummy URL used by terracurl during destroy operations."
+  default     = "https://checkip.amazonaws.com"
+}

@@ -3,6 +3,8 @@ resource "terracurl_request" "first_controller_login" {
   name            = "controller_login"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "login",
@@ -36,6 +38,8 @@ resource "terracurl_request" "set_admin_email" {
   name            = "set_admin_email"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "add_admin_email_addr",
@@ -69,6 +73,8 @@ resource "terracurl_request" "set_notification_email" {
   name            = "set_notification_email"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "add_notif_email_addr",
@@ -106,6 +112,8 @@ resource "terracurl_request" "set_customer_id" {
   name            = "set_customer_id"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "setup_customer_id",
@@ -141,6 +149,8 @@ resource "terracurl_request" "set_admin_password" {
   name            = "set_admin_password"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "edit_account_user",
@@ -179,6 +189,8 @@ resource "terracurl_request" "controller_initial_setup" {
   name            = "controller_initial_setup"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "initial_setup",
@@ -221,6 +233,8 @@ resource "terracurl_request" "verify_complete" {
   name            = "verify_complete"
   url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
+  destroy_url     = var.destroy_url
+  destroy_method  = "GET"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "login",
