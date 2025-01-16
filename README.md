@@ -6,13 +6,13 @@ This module initializes a freshly deployed controller. It requires the usage of 
 ### Compatibility
 Module version | Terraform version
 :--- | :---
-v1.0.1 | >= 1.3
+v1.0.4 | >= 1.3
 
 ### Usage Example
 ```hcl
 module "controller_init" {
   source  = "terraform-aviatrix-modules/controller-init/aviatrix"
-  version = "v1.0.1"
+  version = "v1.0.4"
 
   controller_public_ip      = "1.2.3.4"
   controller_private_ip     = "10.1.1.123"
