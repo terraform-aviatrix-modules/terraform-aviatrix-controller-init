@@ -22,9 +22,9 @@ variable "controller_admin_password" {
     condition = (
       length(var.controller_admin_password) >= 8 &&
       var.controller_admin_password != "" &&
-      regex("\\d", var.controller_admin_password) &&       # Checks for at least one number
-      regex("[a-zA-Z]", var.controller_admin_password) &&  # Checks for at least one letter
-      regex("[^a-zA-Z0-9]", var.controller_admin_password) # Checks for at least one symbol
+      can(regex("\\d", var.controller_admin_password)) &&       # Checks for at least one number
+      can(regex("[a-zA-Z]", var.controller_admin_password)) &&  # Checks for at least one letter
+      can(regex("[^a-zA-Z0-9]", var.controller_admin_password)) # Checks for at least one symbol
     )
     error_message = "Controller password must be at least 8 characters long and contain at least one letter, one number, and one symbol."
   }
