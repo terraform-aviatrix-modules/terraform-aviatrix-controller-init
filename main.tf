@@ -92,8 +92,10 @@ resource "terracurl_request" "set_notification_email" {
     200,
   ]
 
-  max_retry      = 3
-  retry_interval = 3
+  max_retry      = 10
+  retry_interval = 10
+  timeout = 300
+
 
   lifecycle {
     postcondition {
