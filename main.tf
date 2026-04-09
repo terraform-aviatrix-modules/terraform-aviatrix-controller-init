@@ -131,8 +131,9 @@ resource "terracurl_request" "set_customer_id" {
     200,
   ]
 
-  max_retry      = 3
-  retry_interval = 3
+  max_retry      = 10
+  retry_interval = 10
+  timeout = 300
 
   lifecycle {
     postcondition {
@@ -171,8 +172,9 @@ resource "terracurl_request" "set_admin_password" {
     200,
   ]
 
-  max_retry      = 3
-  retry_interval = 3
+  max_retry      = 10
+  retry_interval = 10
+  timeout = 300
 
   lifecycle {
     postcondition {
@@ -209,6 +211,8 @@ resource "terracurl_request" "controller_initial_setup" {
     200,
   ]
 
+  max_retry      = 10
+  retry_interval = 10
   timeout = 300
 
   lifecycle {
@@ -254,7 +258,8 @@ resource "terracurl_request" "verify_complete" {
 
   max_retry      = 10
   retry_interval = 10
-
+  timeout = 300
+  
   lifecycle {
     postcondition {
       condition     = jsondecode(self.response)["return"]
