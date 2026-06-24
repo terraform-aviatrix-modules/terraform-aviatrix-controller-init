@@ -6,6 +6,7 @@ resource "terracurl_request" "first_controller_login" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "login",
     "username" : "admin",
@@ -41,6 +42,7 @@ resource "terracurl_request" "set_admin_email" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "add_admin_email_addr",
     "CID" : local.init_cid,
@@ -76,6 +78,7 @@ resource "terracurl_request" "set_notification_email" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "add_notif_email_addr",
     "CID" : local.init_cid
@@ -115,6 +118,7 @@ resource "terracurl_request" "set_customer_id" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "setup_customer_id",
     "CID" : local.init_cid
@@ -152,6 +156,7 @@ resource "terracurl_request" "set_admin_password" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "edit_account_user",
     "CID" : local.init_cid
@@ -192,6 +197,7 @@ resource "terracurl_request" "controller_initial_setup" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "initial_setup",
     "CID" : local.init_cid
@@ -236,6 +242,7 @@ resource "terracurl_request" "verify_complete" {
   destroy_url     = var.destroy_url
   destroy_method  = "GET"
   skip_tls_verify = true
+  ca_cert_file = ""
   request_body = jsonencode({
     "action" : "login",
     "username" : "admin",
